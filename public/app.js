@@ -5,6 +5,8 @@ document.addEventListener("DOMContentLoaded", event => {
 
 })
 
+var welcomeMessage = document.getElementById("welcome-message");
+
 function googleLogin() {
     const provider = new firebase.auth.GoogleAuthProvider();
 
@@ -12,5 +14,8 @@ function googleLogin() {
 
             .then(result => {
                 const user = result.user;
+                welcomeMessage.innerHTML = `Hello ${user.displayName}`;
+                console.log(user)
             })
+            .catch(console.log)
 }
