@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", event => {
 var welcomeMessage = document.getElementById("welcome-message");
 
 function googleLogin() {
-    const provider = new firebase.auth.GoogleAuthProvider();
+    var provider = new firebase.auth.GoogleAuthProvider();
 
     firebase.auth().signInWithPopup(provider)
 
@@ -18,4 +18,10 @@ function googleLogin() {
                 console.log(user)
             })
             .catch(console.log)
+}
+
+function signOut() {
+  firebase.auth().signOut();
+  console.log("signed out");
+  welcomeMessage.innerHTML = "You are signed out.";
 }
