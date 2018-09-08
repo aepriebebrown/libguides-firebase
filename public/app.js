@@ -2,8 +2,18 @@ document.addEventListener("DOMContentLoaded", event => {
 
     const app = firebase.app();
     console.log(app);
+    const db = firebase.database();
 
-})
+    const preFavorites = document.getElementById('favorites');
+
+    const dbRefObject = firebase.database().ref().child('favorites');
+
+    dbRefObject.on('value', snap => {
+        console.log(snap.val());
+        preFavorites.innerText = JSON.stringify(snap.val(), null, 3);
+    });
+
+});
 
 var welcomeMessage = document.getElementById("welcome-message");
 
