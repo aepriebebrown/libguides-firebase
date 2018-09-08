@@ -13,25 +13,33 @@ var apiUrl = "https://lgapi-us.libapps.com/1.1/guides?site_id=8488&key=0b8da796b
             console.log("Working");
             console.log(response.data.length);
             //Make an array to store multiple results
-            var answersList = [];
+            var namesList = [];
+            var descriptionList = [];
+            var urlList = [];
             //Loop over each response
             for (var i = 0; i < response.data.length; i++) {
                    var nameOfLibguide = response.data[i].name;
                       console.log(nameOfLibguide);
-                      //Add each result to the answersList array
-                      answersList.push(nameOfLibguide);
-                      console.log(answersList);
+                      //Add each result to the namesList array
+                      namesList.push(nameOfLibguide);
+                      console.log(namesList);
+                      var descriptionOfLibguide = response.data[i].description;
+                      console.log(descriptionOfLibguide);
+                      descriptionList.push(descriptionOfLibguide);
+                      var urlOfLibguide = response.data[i].url;
+                      console.log(urlOfLibguide);
+                      urlList.push(urlOfLibguide);
                       //Create an li for each response
                       var listItem = document.createElement('li');
 
                       // Add the item text
-                      listItem.innerHTML = answersList[i];
+                      listItem.innerHTML = '<a href="' + urlList[i] + '" target="_blank">' + namesList[i] + '</a><br><br>' + descriptionList[i];
 
                       // Add listItem to the list
                       libguidesName.appendChild(listItem);
                   }
             //If no results, display a message in the DOM
-            if (answersList.length <= 0) {
+            if (namesList.length <= 0) {
               console.log("No Results");
               libguidesName.innerHTML = "No results.";
             }
