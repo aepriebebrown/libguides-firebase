@@ -18,7 +18,7 @@
 
 
   </head>
-  <body>
+  <body onload="initFirebaseAuth()">
       <button onclick="googleLogin()" id="sign-in">Login with Google</button>
       <button hidden onclick="signOut()" id="sign-out">Sign Out</button>
       <div hidden id="user-name"></div>

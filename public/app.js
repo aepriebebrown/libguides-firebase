@@ -33,7 +33,7 @@ function googleLogin() {
                 console.log("1", user)
             })
             .catch(console.log);
-            initFirebaseAuth();
+            //initFirebaseAuth();
 }
 
 function signOut() {
@@ -56,7 +56,7 @@ function initFirebaseAuth() {
       var userName = getUserName();
 
       // Set the user's name.
-      userNameElement.textContent = userName;
+      userNameElement.textContent = "Logged in as " + userName;
 
       // Show user's profile and sign-out button.
       userNameElement.removeAttribute('hidden');
