@@ -1,9 +1,72 @@
+/*
+
+MISSISSIPPI STATE COLOR PALETTE
+msstate maroon: #660000;
+msstate light gray: #CCCCCC;
+msstate dark gray: #777777;
+
+SECONDARY/ACCENT COLORS
+#A69F88;
+#DAC79D;
+
+*/
+body {
+
+}
+
+#wrapper {
+    width: 96%;
+    max-width: 2000px;
+    height: 100%;
+    margin: auto;
+    padding: 10px;
+}
+
+button {
+    padding: 5px;
+    font-weight: bold;
+    color: white;
+    border-radius: 5px;
+    border: none;
+}
+
+#login {
+    margin-bottom: 50px;
+    text-align: right;
+    background: #660000;
+    padding: 10px;
+    color: white;
+}
+
+#login button {
+    background: #777777;
+}
+
+#login div {
+    display: inline;
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+#getdata {
+    text-align: center;
+}
+
 .libguides-name li {
     padding-bottom: 20px;
 }
 
 button.libguides-button {
     margin-top: 10px;
+    background-color: #660000;
+}
+
+#myfavorites {
+    width: 80%;
+    padding: 5px;
+    margin: auto;
+    border: solid 1px #CCCCCC;
+    box-shadow: 5px 10px 15px #CCCCCC;
 }
 
 #favorites button {

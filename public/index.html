@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Get Libguides Data</title>
+    <title>Search MSU Libraries Libguides</title>
 
     <!-- update the version number as needed -->
     <script defer src="/__/firebase/5.4.2/firebase-app.js"></script>
@@ -17,27 +17,33 @@
     <link rel="stylesheet" type="text/css" href="style.css">
 
 
-  </head>
-  <body onload="initFirebaseAuth()">
-      <button onclick="googleLogin()" id="sign-in">Login with Google</button>
-      <button hidden onclick="signOut()" id="sign-out">Sign Out</button>
-      <div hidden id="user-name"></div>
-      <h1>Get LibGuides Data</h1>
-      <h2 id="welcome-message"></h2>
-                  <div>
-                      Please Enter a Search Term:
-                      <input type="text" class="libguides-input"></input>
-                  </div>
-                  <button class="libguides-button">Load Libguides Data</button>
-                  <div>
-                      <ol class="libguides-name"></ol>
-                  </div>
-                  <div>
-                      <h3>My Favorites</h3>
-                      <ol id="favorites"></ol>
-                  </div>
+</head>
+<body onload="initFirebaseAuth()">
+    <div id="wrapper">
+        <div id="login">
+            <button onclick="googleLogin()" id="sign-in">Login with Google</button>
+            <div hidden id="user-name"></div>
+            <button hidden onclick="signOut()" id="sign-out">Sign Out</button>
+        </div>
+        <div id="getdata">
+            <h1>Search MSU Libraries Libguides</h1>
+            <h2 id="welcome-message"></h2>
+            <div>
+                Please Enter a Search Term:
+                <input type="text" class="libguides-input"></input>
+            </div>
+            <button class="libguides-button">Load Libguides Data</button>
+            <div>
+                <ol class="libguides-name"></ol>
+            </div>
+        </div>
+        <div id="myfavorites">
+            <h3>My Favorites</h3>
+            <ol id="favorites"></ol>
+        </div>
+    </div><!--end wrapper-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.17.0/axios.js"></script>
     <script src="app.js"></script>
     <script src="libguides.js"></script>
-  </body>
+</body>
 </html>

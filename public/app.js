@@ -21,7 +21,7 @@ function googleLogin() {
 
     .then(result => {
         const user = result.user;
-        welcomeMessage.innerHTML = `Hello ${user.displayName}`;
+        //welcomeMessage.innerHTML = `Hello ${user.displayName}`;
     })
     .catch(console.log);
 }
