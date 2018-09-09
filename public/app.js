@@ -6,10 +6,6 @@ document.addEventListener("DOMContentLoaded", event => {
 
     const auth = firebase.auth();
 
-    const myFavorites = document.getElementById('favorites');
-
-    const dbRefObject = firebase.database().ref().child('favorites');
-
 });
 
 var welcomeMessage = document.getElementById("welcome-message");
@@ -74,4 +70,26 @@ function isUserSignedIn() {
 //I feel like this is self-explanatory, but this gets the username
 function getUserName() {
     return firebase.auth().currentUser.displayName;
+}
+
+function getUserEmail() {
+    return firebase.auth().currentUser.email;
+}
+
+function saveFavorites() {
+    //Get favorites list element
+    const myFavorites = document.getElementById('favorites');
+
+    //Get userId
+    var userEmail = getUserEmail();
+    var userId = userEmail.substring(0, userEmail.lastIndexOf("@"));
+
+    //Create database reference
+    const dbRefObject = firebase.database().ref('favorites/' + userId);
+
+    //Synchronize object changes
+    dbRefObject.on('value', snap => {
+        console.log(snap.val());
+        //preFavorites.innerText = JSON.stringify(snap.val(), null, 3);
+    });
 }
