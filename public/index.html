@@ -19,8 +19,9 @@
 
   </head>
   <body>
-      <button onclick="googleLogin()">Login with Google</button>
-      <button id="sign-out" onclick="signOut()">Sign Out</button>
+      <button onclick="googleLogin()" id="sign-in">Login with Google</button>
+      <button hidden onclick="signOut()" id="sign-out">Sign Out</button>
+      <div hidden id="user-name"></div>
       <h1>Get LibGuides Data</h1>
       <h2 id="welcome-message"></h2>
                   <div>

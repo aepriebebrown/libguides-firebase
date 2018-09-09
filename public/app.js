@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", event => {
 
     const app = firebase.app();
-    console.log(app);
+
     const db = firebase.database();
 
     const auth = firebase.auth();
@@ -18,6 +18,9 @@ document.addEventListener("DOMContentLoaded", event => {
 //});
 
 var welcomeMessage = document.getElementById("welcome-message");
+var signInButtonElement = document.getElementById('sign-in');
+var signOutButtonElement = document.getElementById('sign-out');
+var userNameElement = document.getElementById('user-name');
 
 function googleLogin() {
     var provider = new firebase.auth.GoogleAuthProvider();
@@ -27,9 +30,10 @@ function googleLogin() {
             .then(result => {
                 const user = result.user;
                 welcomeMessage.innerHTML = `Hello ${user.displayName}`;
-                console.log(user)
+                console.log("1", user)
             })
-            .catch(console.log)
+            .catch(console.log);
+            initFirebaseAuth();
 }
 
 function signOut() {
@@ -38,12 +42,43 @@ function signOut() {
   welcomeMessage.innerHTML = "You are signed out.";
 }
 
-function initFirebaseAuth() {
+/*function initFirebaseAuth() {
   firebase.auth().onAuthStateChanged(authStateObserver);
+}*/
+
+function initFirebaseAuth() {
+
+    firebase.auth().onAuthStateChanged(function(user) {
+    console.log('user', user);
+
+    if (user) { // User is signed in!
+      // Get the signed-in user's profile pic and name.
+      var userName = getUserName();
+
+      // Set the user's name.
+      userNameElement.textContent = userName;
+
+      // Show user's profile and sign-out button.
+      userNameElement.removeAttribute('hidden');
+      signOutButtonElement.removeAttribute('hidden');
+
+      // Hide sign-in button.
+      signInButtonElement.setAttribute('hidden', 'true');
+
+    } else { // User is signed out!
+      // Hide user's profile and sign-out button.
+      userNameElement.setAttribute('hidden', 'true');
+      signOutButtonElement.setAttribute('hidden', 'true');
+
+      // Show sign-in button.
+      signInButtonElement.removeAttribute('hidden');
+    }
+})
 }
 
 function isUserSignedIn() {
   return !!firebase.auth().currentUser;
+  console.log('user', user);
 }
 
 function getUserName() {
