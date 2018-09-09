@@ -1,4 +1,4 @@
-var apiUrl = "https://lgapi-us.libapps.com/1.1/guides?site_id=8488&key=0b8da796b00334ae3471f60e6a10e8c6&search_terms=";
+var apiUrl = "https://lgapi-us.libapps.com/1.1/guides?site_id=8488&key=0b8da796b00334ae3471f60e6a10e8c6&status=1&sort_by=name&search_terms=";
 var input = document.querySelector(".libguides-input");
 var libguidesName = document.querySelector(".libguides-name");
 var libguidesImage = document.querySelector(".libguides-image");

@@ -37,7 +37,7 @@ function signOut() {
 function initFirebaseAuth() {
 
     firebase.auth().onAuthStateChanged(function(user) {
-        console.log('user', user);
+        //console.log('user', user);
 
         if (user) { // User is signed in!
             // Get the signed-in user's name.
