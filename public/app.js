@@ -76,7 +76,13 @@ function getUserEmail() {
     return firebase.auth().currentUser.email;
 }
 
+/* Started working to save favorites in firebase db, but realized I was running out of time.
 function saveFavorites() {
+
+    var namesList = [];
+    var descriptionList = [];
+    var urlList = [];
+
     //Get favorites list element
     const myFavorites = document.getElementById('favorites');
 
@@ -90,6 +96,12 @@ function saveFavorites() {
     //Synchronize object changes
     dbRefObject.on('value', snap => {
         console.log(snap.val());
-        //preFavorites.innerText = JSON.stringify(snap.val(), null, 3);
+        //myFavorites.innerText = JSON.stringify(snap.val(), null, 3);
+
+        const li = document.createElement('li');
+        li.innerText = snap.val();
+        myFavorites.appendChild(li);
     });
+
 }
+*/
