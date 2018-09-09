@@ -16,11 +16,12 @@ var apiUrl = "https://lgapi-us.libapps.com/1.1/guides?site_id=8488&key=0b8da796b
             var namesList = [];
             var descriptionList = [];
             var urlList = [];
+            var idList = [];
             //Loop over each response
             for (var i = 0; i < response.data.length; i++) {
                    var nameOfLibguide = response.data[i].name;
                       console.log(nameOfLibguide);
-                      //Add each result to the namesList array
+                      //Add data from each result to the namesList array
                       namesList.push(nameOfLibguide);
                       console.log(namesList);
                       var descriptionOfLibguide = response.data[i].description;
@@ -28,12 +29,15 @@ var apiUrl = "https://lgapi-us.libapps.com/1.1/guides?site_id=8488&key=0b8da796b
                       descriptionList.push(descriptionOfLibguide);
                       var urlOfLibguide = response.data[i].url;
                       console.log(urlOfLibguide);
+                      var idOfLibguide = response.data[i].id;
+                      idList.push(idOfLibguide);
                       urlList.push(urlOfLibguide);
                       //Create an li for each response
                       var listItem = document.createElement('li');
+                      listItem.setAttribute("id", idList[i]);
 
                       // Add the item text
-                      listItem.innerHTML = '<a href="' + urlList[i] + '" target="_blank">' + namesList[i] + '</a><br><br>' + descriptionList[i];
+                      listItem.innerHTML = '<a href="' + urlList[i] + '" target="_blank">' + namesList[i] + '</a><br><br>' + descriptionList[i] +'<br><br><button>Favorite</button>';
 
                       // Add listItem to the list
                       libguidesName.appendChild(listItem);

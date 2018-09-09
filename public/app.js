@@ -4,13 +4,13 @@ document.addEventListener("DOMContentLoaded", event => {
     console.log(app);
     const db = firebase.database();
 
-    const preFavorites = document.getElementById('favorites');
+    const myFavorites = document.getElementById('favorites');
 
     const dbRefObject = firebase.database().ref().child('favorites');
 
     dbRefObject.on('value', snap => {
         console.log(snap.val());
-        preFavorites.innerText = JSON.stringify(snap.val(), null, 3);
+        myFavorites.innerText = JSON.stringify(snap.val(), null, 3);
     });
 
 });
