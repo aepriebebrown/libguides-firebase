@@ -71,6 +71,13 @@ function favButton(clicked_id) {
     favoriteList.appendChild(favoriteItem);
 }
 
+function clearResults() {
+    libguidesName.innerHTML = '';
+}
+
 //Find button and listen for a click event
 var button = document.querySelector(".libguides-button");
 button.addEventListener("click", getLibguidesData);
+
+var clearButton = document.getElementById('clear-results');
+clearButton.addEventListener("click", clearResults);
