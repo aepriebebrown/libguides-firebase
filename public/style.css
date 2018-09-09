@@ -10,8 +10,11 @@ SECONDARY/ACCENT COLORS
 #DAC79D;
 
 */
-body {
 
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+body {
+    font-family: 'Open Sans', sans-serif;
 }
 
 #wrapper {
@@ -28,6 +31,14 @@ button {
     color: white;
     border-radius: 5px;
     border: none;
+    background-color: #777777;
+    font-family: 'Open Sans', sans-serif;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+button:hover {
+    background: #A69F88;
 }
 
 #login {
@@ -36,20 +47,59 @@ button {
     background: #660000;
     padding: 10px;
     color: white;
+    box-shadow: 0px 10px 15px #cccccc;
+}
+
+#user-name {
+    font-size: 12px;
+    font-weight: bolder;
 }
 
 #login button {
     background: #777777;
 }
 
+#login button:hover {
+    background: #A69F88;
+}
+
 #login div {
-    display: inline;
     padding-right: 5px;
     padding-left: 5px;
 }
 
+#welcome-message {
+    font-style: italic;
+    font-weight: normal;
+}
+
+#welcome {
+    text-align: center;
+}
+
+#welcome h1 {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+#welcome h2 {
+    font-style: italic;
+    font-weight: normal;
+}
+
 #getdata {
     text-align: center;
+}
+
+#search-results {
+    width: 70%;
+    max-width: 700px;
+    margin: auto;
+    text-align: left;
+}
+
+ol {
+    list-style-position: outside;
 }
 
 .libguides-name li {
@@ -61,12 +111,23 @@ button.libguides-button {
     background-color: #660000;
 }
 
+button.libguides-button:hover {
+    background-color: #A69F88;
+}
+
 #myfavorites {
     width: 80%;
     padding: 5px;
     margin: auto;
     border: solid 1px #CCCCCC;
-    box-shadow: 5px 10px 15px #CCCCCC;
+    box-shadow: 0px 10px 15px #CCCCCC;
+}
+
+#myfavorites h3 {
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
 }
 
 #favorites button {

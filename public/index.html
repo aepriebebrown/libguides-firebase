@@ -25,21 +25,26 @@
             <div hidden id="user-name"></div>
             <button hidden onclick="signOut()" id="sign-out">Sign Out</button>
         </div>
-        <div id="getdata">
+        <div id="welcome">
             <h1>Search MSU Libraries Libguides</h1>
+            <h2 id="login-warning">Please log in.</h2>
             <h2 id="welcome-message"></h2>
-            <div>
-                Please Enter a Search Term:
-                <input type="text" class="libguides-input"></input>
-            </div>
-            <button class="libguides-button">Load Libguides Data</button>
-            <div>
-                <ol class="libguides-name"></ol>
-            </div>
         </div>
-        <div id="myfavorites">
-            <h3>My Favorites</h3>
-            <ol id="favorites"></ol>
+        <div hidden id="app">
+            <div id="getdata">
+                <div>
+                    Please Enter a Search Term:
+                    <input type="text" class="libguides-input"></input>
+                </div>
+                <button class="libguides-button">Load Libguides Data</button>
+                <div id="search-results">
+                    <ol class="libguides-name"></ol>
+                </div>
+            </div>
+            <div id="myfavorites">
+                <h3>My Favorites</h3>
+                <ol id="favorites"></ol>
+            </div>
         </div>
     </div><!--end wrapper-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.17.0/axios.js"></script>

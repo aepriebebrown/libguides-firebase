@@ -12,6 +12,8 @@ var welcomeMessage = document.getElementById("welcome-message");
 var signInButtonElement = document.getElementById('sign-in');
 var signOutButtonElement = document.getElementById('sign-out');
 var userNameElement = document.getElementById('user-name');
+var appElement = document.getElementById('app');
+var loginWarn = document.getElementById('login-warning');
 
 //Allow user to sign in
 function googleLogin() {
@@ -21,7 +23,7 @@ function googleLogin() {
 
     .then(result => {
         const user = result.user;
-        //welcomeMessage.innerHTML = `Hello ${user.displayName}`;
+        welcomeMessage.innerHTML = '';
     })
     .catch(console.log);
 }
@@ -47,6 +49,9 @@ function initFirebaseAuth() {
             // Show user's profile and sign-out button.
             userNameElement.removeAttribute('hidden');
             signOutButtonElement.removeAttribute('hidden');
+            userNameElement.setAttribute('style', 'display: inline');
+            appElement.removeAttribute('hidden');
+            loginWarn.setAttribute('hidden', 'true');
 
             // Hide sign-in button.
             signInButtonElement.setAttribute('hidden', 'true');
@@ -54,7 +59,9 @@ function initFirebaseAuth() {
         } else { // User is signed out!
             // Hide user's profile and sign-out button.
             userNameElement.setAttribute('hidden', 'true');
+            userNameElement.setAttribute('style', '');
             signOutButtonElement.setAttribute('hidden', 'true');
+            appElement.setAttribute('hidden', 'true');
 
             // Show sign-in button.
             signInButtonElement.removeAttribute('hidden');
