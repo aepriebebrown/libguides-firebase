@@ -4,16 +4,18 @@ document.addEventListener("DOMContentLoaded", event => {
     console.log(app);
     const db = firebase.database();
 
+    const auth = firebase.auth();
+
     const myFavorites = document.getElementById('favorites');
 
     const dbRefObject = firebase.database().ref().child('favorites');
 
-    dbRefObject.on('value', snap => {
+    /*dbRefObject.on('value', snap => {
         console.log(snap.val());
-        myFavorites.innerText = JSON.stringify(snap.val(), null, 3);
+        myFavorites.innerText = JSON.stringify(snap.val(), null, 3);*/
     });
 
-});
+//});
 
 var welcomeMessage = document.getElementById("welcome-message");
 
@@ -34,4 +36,16 @@ function signOut() {
   firebase.auth().signOut();
   console.log("signed out");
   welcomeMessage.innerHTML = "You are signed out.";
+}
+
+function initFirebaseAuth() {
+  firebase.auth().onAuthStateChanged(authStateObserver);
+}
+
+function isUserSignedIn() {
+  return !!firebase.auth().currentUser;
+}
+
+function getUserName() {
+  return firebase.auth().currentUser.displayName;
 }

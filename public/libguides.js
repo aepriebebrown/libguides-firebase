@@ -2,6 +2,7 @@ var apiUrl = "https://lgapi-us.libapps.com/1.1/guides?site_id=8488&key=0b8da796b
     var input = document.querySelector(".libguides-input");
     var libguidesName = document.querySelector(".libguides-name");
     var libguidesImage = document.querySelector(".libguides-image");
+    var favoriteList = document.getElementById("favorites");
 
     function getLibguidesData() {
         //Use Axios to GET data
@@ -37,7 +38,7 @@ var apiUrl = "https://lgapi-us.libapps.com/1.1/guides?site_id=8488&key=0b8da796b
                       listItem.setAttribute("id", idList[i]);
 
                       // Add the item text
-                      listItem.innerHTML = '<a href="' + urlList[i] + '" target="_blank">' + namesList[i] + '</a><br><br>' + descriptionList[i] +'<br><br><button>Favorite</button>';
+                      listItem.innerHTML = '<a href="' + urlList[i] + '" target="_blank">' + namesList[i] + '</a><br><br>' + descriptionList[i] +'<br><br><button class="' + idList[i] + '" onClick="favButton(this.parentNode.id)">Favorite</button>';
 
                       // Add listItem to the list
                       libguidesName.appendChild(listItem);
@@ -54,6 +55,15 @@ var apiUrl = "https://lgapi-us.libapps.com/1.1/guides?site_id=8488&key=0b8da796b
             libguidesName.innerHTML = "(An error has occurred.)";
             console.log("Error!");
         });
+    }
+
+    function favButton(clicked_id) {
+        var id = clicked_id;
+        var buttonClass = String(id);
+        var favoriteItem = document.createElement('li');
+        console.log("li created");
+        favoriteItem.innerHTML = document.getElementById(clicked_id).innerHTML;
+        favoriteList.appendChild(favoriteItem);
     }
 
     //Find button and listen for a click event

@@ -5,3 +5,7 @@
 button.libguides-button {
     margin-top: 10px;
 }
+
+#favorites button {
+    display: none;
+}
